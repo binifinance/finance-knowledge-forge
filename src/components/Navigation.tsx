@@ -81,7 +81,7 @@ export function Navigation() {
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         )}
         style={{
-          background: 'radial-gradient(ellipse at center, white 40%, #000D1A 100%)'
+          background: 'radial-gradient(ellipse at center, white 40%, #0B2545 100%)'
         }}
       >
         <div className="p-6">
@@ -155,7 +155,7 @@ export function Navigation() {
         <div 
           className="absolute bottom-0 left-0 right-0 p-6 border-t border-nav-border"
           style={{
-            background: 'radial-gradient(ellipse at center, white 40%, #000D1A 100%)'
+            background: 'radial-gradient(ellipse at center, white 40%, #0B2545 100%)'
           }}
         >
           <div className="text-xs text-nav-foreground/60 space-y-1">
