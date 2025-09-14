@@ -75,10 +75,15 @@ export function Navigation() {
       )}
 
       {/* Navigation Sidebar */}
-      <nav className={cn(
-        "fixed left-0 top-0 h-full w-[260px] bg-nav border-r border-nav-border z-40 transform transition-transform duration-200 ease-in-out custom-scrollbar overflow-y-auto",
-        isMobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
-      )}>
+      <nav 
+        className={cn(
+          "fixed left-0 top-0 h-full w-[260px] border-r border-nav-border z-40 transform transition-transform duration-200 ease-in-out custom-scrollbar overflow-y-auto",
+          isMobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+        )}
+        style={{
+          background: 'radial-gradient(ellipse at center, white 40%, #0B2545 100%)'
+        }}
+      >
         <div className="p-6">
           {/* Logo/Brand */}
           <div className="mb-8">
@@ -147,7 +152,12 @@ export function Navigation() {
         </div>
 
         {/* Footer in Navigation */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-nav-border bg-nav">
+        <div 
+          className="absolute bottom-0 left-0 right-0 p-6 border-t border-nav-border"
+          style={{
+            background: 'radial-gradient(ellipse at center, white 40%, #0B2545 100%)'
+          }}
+        >
           <div className="text-xs text-nav-foreground/60 space-y-1">
             <p>&copy; 2025 World of Finance</p>
             <p>Professional finance knowledge</p>
