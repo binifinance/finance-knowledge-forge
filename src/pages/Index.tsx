@@ -75,7 +75,7 @@ const Index = () => {
         </header>
 
         {/* Articles Content */}
-        <div className="max-w-6xl mx-auto p-6 bg-white text-gray-900">
+        <div className="max-w-6xl mx-auto p-6 text-gray-900" style={{ background: 'radial-gradient(ellipse at center, white 40%, hsl(215, 54%, 10%) 100%)' }}>
           {filteredArticles.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-muted-foreground text-lg">
