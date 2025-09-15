@@ -87,7 +87,7 @@ export function Navigation() {
         <div className="p-6">
           {/* Logo/Brand */}
           <div className="mb-8">
-            <h1 className="text-xl font-bold text-nav-active-foreground">
+            <h1 className="text-xl font-bold text-blue-900">
               World of Finance
             </h1>
             <p className="text-sm text-nav-foreground mt-1">
