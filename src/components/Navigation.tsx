@@ -77,17 +77,17 @@ export function Navigation() {
       {/* Navigation Sidebar */}
       <nav 
         className={cn(
-          "fixed left-0 top-0 h-full w-[260px] border-r border-nav-border z-40 transform transition-transform duration-200 ease-in-out custom-scrollbar overflow-y-auto bg-primary",
+          "fixed left-0 top-0 h-full w-[260px] border-r border-nav-border z-40 transform transition-transform duration-200 ease-in-out custom-scrollbar overflow-y-auto bg-white",
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         )}
       >
         <div className="p-6">
           {/* Logo/Brand */}
           <div className="mb-8">
-            <h1 className="text-xl font-bold text-blue-900">
+            <h1 className="text-xl font-bold text-white">
               World of Finance
             </h1>
-            <p className="text-sm text-nav-foreground mt-1">
+            <p className="text-sm text-white mt-1">
               Knowledge Hub
             </p>
           </div>
@@ -100,12 +100,12 @@ export function Navigation() {
                   {/* Main Navigation Link */}
                   <Link
                     to={item.href}
-                    className={cn(
-                      "flex items-center justify-between w-full px-3 py-2.5 text-sm rounded-md transition-colors duration-150",
-                      isActiveRoute(item.href)
-                        ? "bg-nav-active text-nav-active-foreground font-medium"
-                        : "text-nav-foreground hover:bg-nav-active/20 hover:text-nav-active-foreground"
-                    )}
+                     className={cn(
+                       "flex items-center justify-between w-full px-3 py-2.5 text-sm rounded-md transition-colors duration-150",
+                       isActiveRoute(item.href)
+                         ? "bg-nav-active text-white font-medium"
+                         : "text-white hover:bg-nav-active/20 hover:text-white"
+                     )}
                     onClick={() => {
                       if (item.subitems) {
                         toggleSection(item.label);
@@ -130,7 +130,7 @@ export function Navigation() {
                       {item.subitems.map((subitem) => (
                         <li key={subitem}>
                           <button
-                            className="block w-full text-left px-2 py-1.5 text-sm text-nav-foreground/80 hover:text-nav-active transition-colors duration-150"
+                            className="block w-full text-left px-2 py-1.5 text-sm text-white hover:text-white transition-colors duration-150"
                             onClick={() => {
                               // This would filter articles by subcategory in a real implementation
                               console.log(`Filter by: ${subitem}`);
@@ -150,9 +150,9 @@ export function Navigation() {
 
         {/* Footer in Navigation */}
         <div 
-          className="absolute bottom-0 left-0 right-0 p-6 border-t border-nav-border bg-primary"
+          className="absolute bottom-0 left-0 right-0 p-6 border-t border-nav-border bg-white"
         >
-          <div className="text-xs text-nav-foreground/60 space-y-1">
+          <div className="text-xs text-white space-y-1">
             <p>&copy; 2025 World of Finance</p>
             <p>Professional finance knowledge</p>
           </div>
