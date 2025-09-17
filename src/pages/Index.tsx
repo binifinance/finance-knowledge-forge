@@ -28,7 +28,7 @@ const Index = () => {
         <header className="bg-card border-b border-border sticky top-0 z-20">
           <div className="max-w-6xl mx-auto px-6 py-6">
             <div className="mb-4">
-              <h1 className="text-3xl font-bold text-foreground">World of Finance</h1>
+              <h1 className="text-3xl font-bold text-foreground">World of Finance!</h1>
               <p className="text-muted-foreground mt-1">
                 Complete knowledge hub covering accounting implications and financial developments
               </p>
