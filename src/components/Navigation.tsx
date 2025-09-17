@@ -77,9 +77,12 @@ export function Navigation() {
       {/* Navigation Sidebar */}
       <nav 
         className={cn(
-          "fixed left-0 top-0 h-full w-[260px] border-r border-nav-border z-40 transform transition-transform duration-200 ease-in-out custom-scrollbar overflow-y-auto bg-white",
+          "fixed left-0 top-0 h-full w-[260px] border-r border-nav-border z-40 transform transition-transform duration-200 ease-in-out custom-scrollbar overflow-y-auto",
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         )}
+        style={{
+          backgroundColor: '#0B2545'
+        }}
       >
         <div className="p-6">
           {/* Logo/Brand */}
@@ -150,7 +153,10 @@ export function Navigation() {
 
         {/* Footer in Navigation */}
         <div 
-          className="absolute bottom-0 left-0 right-0 p-6 border-t border-nav-border bg-white"
+          className="absolute bottom-0 left-0 right-0 p-6 border-t border-nav-border"
+          style={{
+            backgroundColor: '#0B2545'
+          }}
         >
           <div className="text-xs text-white space-y-1">
             <p>&copy; 2025 World of Finance</p>
