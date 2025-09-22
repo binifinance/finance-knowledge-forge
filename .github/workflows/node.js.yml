@@ -1,27 +1,64 @@
-name: Node.js CI
+name: Build and Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write  # Allows the workflow to push back to the repo
+    
+    strategy:
+      matrix:
+        node-version: [20.x]  # Using single Node version for faster builds
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Node.js
+      - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: '18' # You can change this to your required version
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      # Optionally add other steps like running tests
-      # - name: Run tests
-      #   run: npm test
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy built files to root
+        run: |
+          # Remove old built files from root (keep source files)
+          find . -maxdepth 1 -name "*.html" -not -name "index.html" -delete 2>/dev/null || true
+          find . -maxdepth 1 -name "*.js" -delete 2>/dev/null || true
+          find . -maxdepth 1 -name "*.css" -delete 2>/dev/null || true
+          rm -rf assets 2>/dev/null || true
+          
+          # Copy new built files to root
+          cp -r dist/* .
+          
+          # Configure git
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # Add and commit if there are changes
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "🚀 Auto-deploy: Update built files [skip ci]"
+            git push
+          fi
+
+      - name: Run tests (if available)
+        run: npm test
+        continue-on-error: true  # Don't fail deployment if tests fail
